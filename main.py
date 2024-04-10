@@ -8,8 +8,8 @@ from processing.tag_converter import TagConverter
 
 @benchmark
 def main():
-    p = Path(argv[1])
-    src = Eaf(p)
+    path = Path(argv[1])
+    src = Eaf(path)
     dest = MyEaf()
 
     try:
@@ -47,7 +47,7 @@ def main():
     dest.populate_tier(src.get_annotation_data_for_tier('word_correct'), 'word_correct_old')
 
     dest.clean_time_slots()
-    dest.to_file(p.parent / (p.stem + '_TEST.eaf'))
+    dest.to_file(path.parent / (path.stem + '_TEST.eaf'))
 
 if __name__ == '__main__':
     main()
