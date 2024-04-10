@@ -1,6 +1,8 @@
 from sys import argv
 from pathlib import Path
 from pympi.Elan import Eaf
+from time import time
+
 from setup import MyEaf, benchmark
 from processing.tokenize import tokenize_tier
 from processing.tag_converter import TagConverter
@@ -47,7 +49,9 @@ def main():
     dest.populate_tier(src.get_annotation_data_for_tier('word_correct'), 'word_correct_old')
 
     dest.clean_time_slots()
-    dest.to_file(path.parent / (path.stem + '_TEST.eaf'))
+    
+    filename = str(int(time())) + '_' + path.name
+    dest.to_file(path.parent / filename)
 
 if __name__ == '__main__':
     main()
