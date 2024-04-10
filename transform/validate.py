@@ -33,14 +33,4 @@ def validate(annotation_data1, annotation_data2):
 
     if mismatches:
         raise ValueError(
-            f'{mismatches} problems found in total. (See above)')
-
-
-
-# match = re.fullmatch(r'([-а-я]+)=([A-Z]+.*=.*)', tag)
-     
-# src = 'Да нет, не особо, в принципе.'
-# tagged = '   Да{да=CONJ=}нет{нет=PART=}не{не=PART=}особо{особо=ADV=}впринципе{принцип=S,муж,неод=пр,ед}'
-
-# words = re.findall('[-А-яЁё]+', src)
-# tags = re.findall('([-А-яЁё]+){(.*?)}', tagged)
+            f'{mismatches} issues found in total. (See above)')
