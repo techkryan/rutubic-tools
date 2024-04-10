@@ -5,6 +5,7 @@ from time import time
 
 from setup import MyEaf, benchmark
 from processing.tokenize import tokenize_tier
+from processing.validate import validate
 from processing.tag_converter import TagConverter
 
 
