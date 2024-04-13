@@ -21,10 +21,14 @@ def main():
             src.get_annotation_data_for_tier('transcript_resp'),
         )
     except ValueError as e:
-        print(e)
-        ans = input('Would you like to proceed? [y/N]: ')
-        if ans.lower() != 'y':
-            return
+        while True:
+            print(e)
+            ans = input('Would you like to proceed? [y/N]: ')
+            if ans.lower() == 'y':
+                break
+            elif ans.lower() in ('n', ''):
+                raise SystemExit
+
 
     dest.populate_tier(MyEaf.substract_tiers(src, 'text', 'transcript_resp'), 'transcript_inter')
     dest.populate_tier(src.get_annotation_data_for_tier('transcript_resp'), 'transcript_resp')
